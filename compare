@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class LexicographicComparison {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Read two strings from the user
+        System.out.print("Enter the first string: ");
+        String str1 = scanner.nextLine();
+        System.out.print("Enter the second string: ");
+        String str2 = scanner.nextLine();
+
+        // Compare the strings lexicographically
+        int result = str1.compareTo(str2);
+        
+        // Display the result
+        if (result < 0) {
+            System.out.println(str1 + " is lexicographically before " + str2);
+        } else if (result > 0) {
+            System.out.println(str1 + " is lexicographically after " + str2);
+        } else {
+            System.out.println(str1 + " is lexicographically equal to " + str2);
+        }
+    }
+}
