@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class IndexFinder {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String str = input.nextLine();
+        
+        System.out.print("Enter a character or substring to find: ");
+        String find = input.nextLine();
+        
+        int index = findIndex(str, find);
+        if(index == -1) {
+            System.out.println(find + " not found in " + str);
+        } else {
+            System.out.println(find + " found at index " + index + " in " + str);
+        }
+    }
+    
+    public static int findIndex(String str, String find) {
+        return str.indexOf(find);
+    }
+}
