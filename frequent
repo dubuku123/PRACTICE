@@ -1,0 +1,50 @@
+import java.util.*;
+
+public class MostFrequentWord {
+    public static void main(String[] args) {
+        // Get input from user
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String inputString = scanner.nextLine();
+        
+        // Split input string into individual words
+        String[] words = inputString.split("\\s+");
+        
+        // Create a map to store word counts
+        Map<String, Integer> wordCountMap = new HashMap<>();
+        for (String word : words) {
+            // Convert all words to lowercase for case-insensitive counting
+            String lowercaseWord = word.toLowerCase();
+            
+            // If word is already in map, increment count
+            // Otherwise, add it to map with count of 1
+            if (wordCountMap.containsKey(lowercaseWord)) {
+                int count = wordCountMap.get(lowercaseWord);
+                wordCountMap.put(lowercaseWord, count + 1);
+            } else {
+                wordCountMap.put(lowercaseWord, 1);
+            }
+        }
+        
+        // Find the most frequent word(s) in the map
+        int maxCount = 0;
+        List<String> mostFrequentWords = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : wordCountMap.entrySet()) {
+            int count = entry.getValue();
+            if (count > maxCount) {
+                maxCount = count;
+                mostFrequentWords.clear();
+                mostFrequentWords.add(entry.getKey());
+            } else if (count == maxCount) {
+                mostFrequentWords.add(entry.getKey());
+            }
+        }
+        
+        // Print the most frequent word(s)
+        System.out.print("The most frequent word(s) is/are: ");
+        for (String word : mostFrequentWords) {
+            System.out.print(word + " ");
+        }
+    }
+}
+
