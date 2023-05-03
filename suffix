@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class CheckStringSuffix {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String str = scanner.nextLine();
+
+        System.out.print("Enter a suffix: ");
+        String suffix = scanner.nextLine();
+
+        boolean endsWithSuffix = str.endsWith(suffix);
+
+        if (endsWithSuffix) {
+            System.out.println("The string \"" + str + "\" ends with suffix \"" + suffix + "\"");
+        } else {
+            System.out.println("The string \"" + str + "\" does not end with suffix \"" + suffix + "\"");
+        }
+    }
+}
